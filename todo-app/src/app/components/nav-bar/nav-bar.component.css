@@ -1,0 +1,21 @@
+.bar{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(188, 203, 235);
+}
+
+a{
+    display: flex;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a.here{
+    background-color: rgb(135, 158, 209);
+}
+
+.seperator{
+    margin: 15px;
+    background-color: white;
+}
