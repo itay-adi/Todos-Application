@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { MatIconModule } from '@angular/material/icon';
 import { ListsComponent } from './components/lists/lists.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { ListInfoComponent } from './components/list-info/list-info.component';
+import { ListEditComponent } from './components/list-edit/list-edit.component';
+import { ItemsComponent } from './components/items/items.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NavBarComponent,
     ListsComponent,
+    ListInfoComponent,
+    ListEditComponent,
+    ItemsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

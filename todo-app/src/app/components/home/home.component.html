@@ -3,14 +3,14 @@
 <div class="intro">
     <div class="details">
         <h1>Todos app</h1>
-        <h2>By {{developerName}}</h2>
+        <h2>By: {{developerName}}</h2>
         <h3>{{today}}</h3>
     </div>
 
     <div class="buttons">
-        <button>Create a new list</button>
-        <button>View all lists</button>
-        <button>View all items</button>
+        <button routerLink="../lists/-1/edit">Create a new list</button>
+        <button routerLink="../lists">View all lists</button>
+        <button routerLink="../items">View all items</button>
     </div>
 </div>
 
@@ -20,18 +20,18 @@
     <div class="icon">
         <mat-icon>format_list_bulleted</mat-icon>
         <h2 class="number">{{lists}}</h2>
-        <h2 class="name">lists</h2>
+        <h2 class="name">Lists</h2>
     </div>
 
     <div class="icon">
         <mat-icon>assignment_turned_in</mat-icon>
-        <h2 class="number">{{todoItems}}</h2>
+        <h2 class="number">{{numberOfTodoItems$ | async}}</h2>
         <h2 class="name">Todo Items</h2>
     </div>
 
     <div class="icon">
         <mat-icon>assignment</mat-icon>
-        <h2 class="number">{{activeItems}}</h2>
+        <h2 class="number">{{numberOfActiveTodoItems$ | async}}</h2>
         <h2 class="name">Active Items</h2>
     </div>    
 </div>

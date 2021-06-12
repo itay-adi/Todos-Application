@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { TodoitemsService } from "src/app/core/services/todoitems.service";
 
 @Component({
   selector: 'app-home',
@@ -10,16 +11,18 @@ export class HomeComponent implements OnInit {
   developerName!: string;
   today!: string;
 
+  numberOfTodoItems$!: Promise<number>;
+  numberOfActiveTodoItems$!: Promise<number>;
+
   lists = 2;
-  todoItems = 3;
-  activeItems = 2;
   
-  constructor() {
-    
-  }
+  constructor(private todoItemsService: TodoitemsService) { }
 
   ngOnInit(): void {
     this.developerName = "Itay Adi Yosef";
     this.today = new Date().toLocaleDateString('en-GB');
+
+    this.numberOfTodoItems$ = this.todoItemsService.getNumberOfTodoItems();
+    this.numberOfActiveTodoItems$ = this.todoItemsService.getNumberOfActiveTodoItems();
   }
 }

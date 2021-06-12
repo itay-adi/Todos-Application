@@ -1,0 +1,28 @@
+{
+  "todoItems": [
+    {
+      "id": 1,
+      "caption": "apples",
+      "listId": "1",
+      "isCompleted": false
+    },
+    {
+      "id": 2,
+      "caption": "chicken-wings",
+      "listId": "1",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "caption": "Go to the Doctor",
+      "listId": "2",
+      "isCompleted": false
+    },
+    {
+      "id": 4,
+      "caption": "Go to swim",
+      "listId": "3",
+      "isCompleted": true
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form{
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(135, 158, 209);
+    background-color: rgb(228, 231, 240);
+    width: 300px;
+    align-self: center;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
+
+.blue{
+    color: blue;
+}
+
+.steelblue{
+    color: steelblue;
+}
+
+.magenta{
+    color: magenta;
+}
+
+.brown{
+    color: brown;
+}
+
+.orange{
+    color: orange;
+}
+
+label{
+    display: flex;
+    flex-direction: row;
+    color: rgb(37, 78, 168);
+}
+
+input{
+    border: 1px;
+    border-style: solid;
+}
+
+input, textarea, select{
+    border-color: rgb(37, 78, 168);
+    height: 25px;
+    font-size: 17px;
+    color: rgb(65, 67, 73);
+}
+
+textarea {
+    height: 60px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+button{
+    border-radius: 4px;
+    color: rgb(37, 78, 168);
+    background: rgb(206, 212, 230);
+    font-size: 18px;
+    padding: 5px;
+    width: 80px;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+button:hover{
+    background: rgb(132, 144, 170);
+    transition: 0.2s;
+    color: white
+}
