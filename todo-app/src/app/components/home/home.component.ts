@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { TodoitemsService } from "src/app/core/services/todoitems.service";
+import { TodolistsService } from "src/app/core/services/todolists.service";
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,10 @@ export class HomeComponent implements OnInit {
 
   numberOfTodoItems$!: Promise<number>;
   numberOfActiveTodoItems$!: Promise<number>;
-
-  lists = 2;
+  numberOfTodoLists$!: Promise<number>;
   
-  constructor(private todoItemsService: TodoitemsService) { }
+  constructor(private todoItemsService: TodoitemsService,
+              private todoListsService: TodolistsService) { }
 
   ngOnInit(): void {
     this.developerName = "Itay Adi Yosef";
@@ -24,5 +25,6 @@ export class HomeComponent implements OnInit {
 
     this.numberOfTodoItems$ = this.todoItemsService.getNumberOfTodoItems();
     this.numberOfActiveTodoItems$ = this.todoItemsService.getNumberOfActiveTodoItems();
+    this.numberOfTodoLists$ = this.todoListsService.getNumberOfTodoLists();
   }
 }

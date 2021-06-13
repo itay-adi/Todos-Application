@@ -1,0 +1,72 @@
+{
+  "todoItems": [
+    {
+      "id": 1,
+      "caption": "apples",
+      "listId": "1",
+      "isCompleted": false
+    },
+    {
+      "id": 2,
+      "caption": "chicken-wings",
+      "listId": "1",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "caption": "Go to the Doctor",
+      "listId": "2",
+      "isCompleted": false
+    },
+    {
+      "id": 4,
+      "caption": "Go to swim",
+      "listId": "2",
+      "isCompleted": true
+    }
+  ],
+  "todoLists": [
+    {
+      "id": 1,
+      "caption": "Supermarket",
+      "description": "I need to eat",
+      "imageURL": "https://theplanetapp.com/wp-content/uploads/2020/09/sustainable-supermarket-theplanetapp-1280x960.jpg",
+      "color": "green"
+    },
+    {
+      "id": 2,
+      "caption": "Health Activities",
+      "description": "I want to live longer",
+      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
+      "color": "red"
+    },
+    {
+      "caption": "Health Activities",
+      "description": "I want to live longer",
+      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
+      "color": "red",
+      "id": 3
+    },
+    {
+      "caption": "Health Activities",
+      "description": "I want to live longer",
+      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
+      "color": "red",
+      "id": 4
+    },
+    {
+      "caption": "Health Activities",
+      "description": "I want to live longer",
+      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
+      "color": "red",
+      "id": 5
+    },
+    {
+      "caption": "Health Activities",
+      "description": "I want to live longer",
+      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
+      "color": "red",
+      "id": 6
+    }
+  ]
+}

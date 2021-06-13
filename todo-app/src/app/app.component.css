@@ -11,3 +11,7 @@
     background-color: rgb(66,103,178);
     text-align: center;
 }
+
+h1{
+    cursor: pointer;
+}
