@@ -13,16 +13,16 @@
       "isCompleted": false
     },
     {
-      "id": 3,
+      "caption": "Go to the doctor",
       "listId": 2,
-      "caption": "Go to the Doctor",
-      "isCompleted": false
+      "isCompleted": true,
+      "id": 3
     },
     {
       "id": 4,
       "listId": 2,
       "caption": "Go to swim",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "listId": 1,
@@ -57,34 +57,6 @@
       "description": "I want to live longer",
       "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
       "color": "red"
-    },
-    {
-      "caption": "Health Activities",
-      "description": "I want to live longer",
-      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
-      "color": "red",
-      "id": 3
-    },
-    {
-      "caption": "Health Activities",
-      "description": "I want to live longer",
-      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
-      "color": "red",
-      "id": 4
-    },
-    {
-      "caption": "Health Activities",
-      "description": "I want to live longer",
-      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
-      "color": "red",
-      "id": 5
-    },
-    {
-      "caption": "Health Activities",
-      "description": "I want to live longer",
-      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
-      "color": "red",
-      "id": 6
     }
   ]
 }

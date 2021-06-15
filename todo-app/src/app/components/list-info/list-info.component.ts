@@ -61,4 +61,9 @@ export class ListInfoComponent implements OnInit {
 
     this.todolistsService.deleteTodoListById(currentListId);
   }
+
+  markItem(currentItemId : number | undefined, isComplete: boolean){
+    console.log(`mark item ${isComplete}`);
+    this.todoItemService.markTodoItemAs(Number(currentItemId), isComplete);
+  }
 }

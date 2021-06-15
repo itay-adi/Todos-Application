@@ -15,14 +15,19 @@
                 <button class="delete" (click)="deleteList()" routerLink="..">Delete</button>
             </div>
         </div>
-    <div class="items" *ngIf="(items$ | async) as itemsList">
-        <div *ngFor="let item of itemsList" class="item">
-            <input type="checkbox" id="{{item.caption}}">
-                <label for="{{item.caption}}">{{item.caption}}</label>
+        <div class="items" *ngIf="(items$ | async) as itemsList">
+            <div *ngFor="let item of itemsList" class="item">
+                <input type="checkbox" id="{{item.caption}}" [checked]="item.isCompleted" (click)="markItem(item.id, !item.isCompleted)">
+                    <label for="{{item.caption}}" >{{item.caption}}</label>
+            </div>
+            <form [formGroup]="newItem" class="add" (ngSubmit)="addItem(caption.value)">
+                <input formControlName="caption" #caption class="add-item" type="text" placeholder="Add a new Item">
+                <button [disabled]="newItem.invalid" class="add-button">+</button>
+            </form>
         </div>
-        <form [formGroup]="newItem" class="add" (ngSubmit)="addItem(caption.value)">
-            <input formControlName="caption" #caption class="add-item" type="text" placeholder="Add a new Item">
-            <button [disabled]="newItem.invalid" class="add-button">+</button>
-        </form>
     </div>
+</div>
+
+<div *ngIf="!(list$ | async)">
+    <h1>List Doesn't Exist</h1>
 </div>

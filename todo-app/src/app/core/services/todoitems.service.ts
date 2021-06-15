@@ -99,4 +99,17 @@ export class TodoitemsService {
             .delete(url)
             .toPromise();
   }
+
+  markTodoItemAs(IdNumber: number, isDone: boolean){
+    const url = `${this.baseUrl}/todoItems/${IdNumber}`;
+
+    this.httpClient
+            .patch(url, {"isCompleted": isDone})
+            .subscribe(
+              data => {console.log(`Patch for item number ${IdNumber} went well`);},
+                       error => {console.log("Error", error);}
+            );
+
+    console.log(IdNumber + " Inside markTodoItemAs")
+  }
 }

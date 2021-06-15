@@ -88,3 +88,8 @@ button:hover {
     width: 30px;
     margin: 2px;
 }
+
+input[type=checkbox]:checked + label {
+    color: rgb(146, 143, 143);
+    text-decoration: line-through red 2px;
+}

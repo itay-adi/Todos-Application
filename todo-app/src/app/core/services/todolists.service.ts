@@ -47,14 +47,21 @@ export class TodolistsService {
     return todoListById;
   }
 
-  deleteTodoListById(IdNumber: number){
-    let todoItemsPerListId = this.todoItemsService.getTodoItemsPerListId(IdNumber);
-
-
-    /*const url = `${this.baseUrl}/todoLists/${IdNumber}`;
-
+  async deleteTodoListById(IdNumber: number){
+    const url = `${this.baseUrl}/todoLists/${IdNumber}`;
+    
+    this.deleteAllTodoItemsOfAList(IdNumber);
+    
     return this.httpClient
             .delete(url)
-            .toPromise();*/
+            .toPromise();
+  }
+
+  private async deleteAllTodoItemsOfAList(listIdNumber: number){
+    let todoItemsPerListId = await this.todoItemsService.getTodoItemsPerListId(listIdNumber).toPromise();
+
+    todoItemsPerListId.forEach(todoItem => {
+      this.todoItemsService.deleteTodoItemById(Number(todoItem.id));
+    });
   }
 }
