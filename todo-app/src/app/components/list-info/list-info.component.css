@@ -1,0 +1,90 @@
+:host {
+    display: flex;
+    padding: 20px;
+    border: 1px solid rgb(37, 78, 168);
+    background-color: rgb(233, 236, 243);
+}
+
+.headlines {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+img {
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+h2{
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+button{
+    width: 96px;
+    height: 40px;
+    margin: 10px;
+    margin-left: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.item{
+    margin: 3px;
+}
+
+.add{
+    margin: 3px;
+    margin-top: 5px;
+}
+
+label{
+    font-size: 20px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(188, 203, 235);
+}
+
+.delete {
+    border: solid red;
+    background-color: rgb(248, 174, 166);
+    
+}
+
+.delete:hover{
+    background-color: rgb(248, 71, 71);
+}
+
+.add-button{
+    background-color: rgb(188, 203, 235);
+}
+
+.add-button:hover{
+    background-color: rgb(135, 158, 209);
+}
+
+.add{
+    display: flex;
+    flex-direction: row;
+}
+
+.add-item {
+    font-size: 18px;
+}
+
+.add-button{
+    height: 26px;
+    width: 30px;
+    margin: 2px;
+}

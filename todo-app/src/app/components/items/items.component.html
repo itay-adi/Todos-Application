@@ -1,1 +1,12 @@
-<p>items works!</p>
+<h2>Active items:</h2>
+
+<div *ngFor="let item of (activeTodoItems$ | async)">
+    <input id="{{item.caption}}" type="checkbox">
+        <label for="{{item.caption}}">{{item.caption}}</label>
+</div>
+
+<h2>History:</h2>
+<div *ngFor="let item of (completedTodoItems$ | async)">
+    <input id="{{item.caption}}" type="checkbox" disabled checked>
+        <label for="{{item.caption}}">{{item.caption}}</label>
+</div>

@@ -2,27 +2,45 @@
   "todoItems": [
     {
       "id": 1,
+      "listId": 1,
       "caption": "apples",
-      "listId": "1",
       "isCompleted": false
     },
     {
       "id": 2,
+      "listId": 1,
       "caption": "chicken-wings",
-      "listId": "1",
       "isCompleted": false
     },
     {
       "id": 3,
+      "listId": 2,
       "caption": "Go to the Doctor",
-      "listId": "2",
       "isCompleted": false
     },
     {
       "id": 4,
+      "listId": 2,
       "caption": "Go to swim",
-      "listId": "2",
       "isCompleted": true
+    },
+    {
+      "listId": 1,
+      "caption": "bananas",
+      "isCompleted": true,
+      "id": 5
+    },
+    {
+      "listId": 1,
+      "caption": "kiwi",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "listId": 1,
+      "caption": "tortilla",
+      "isCompleted": false,
+      "id": 7
     }
   ],
   "todoLists": [
