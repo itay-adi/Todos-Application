@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { find, first, map } from 'rxjs/operators';
+import { TodoItem } from '../models/todo-item.model';
 import { TodoList } from '../models/todo-list.model';
 import { TodoitemsService } from './todoitems.service';
 
@@ -47,21 +48,21 @@ export class TodolistsService {
     return todoListById;
   }
 
-  async deleteTodoListById(IdNumber: number){
+  deleteTodoListById(IdNumber: number): Promise<TodoItem>{
     const url = `${this.baseUrl}/todoLists/${IdNumber}`;
     
     this.deleteAllTodoItemsOfAList(IdNumber);
     
     return this.httpClient
-            .delete(url)
+            .delete<TodoItem>(url)
             .toPromise();
   }
 
   private async deleteAllTodoItemsOfAList(listIdNumber: number){
     let todoItemsPerListId = await this.todoItemsService.getTodoItemsPerListId(listIdNumber).toPromise();
 
-    todoItemsPerListId.forEach(todoItem => {
-      this.todoItemsService.deleteTodoItemById(Number(todoItem.id));
+    todoItemsPerListId.forEach(async todoItem => {
+      await this.todoItemsService.deleteTodoItemById(Number(todoItem.id));
     });
   }
 }

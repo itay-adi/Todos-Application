@@ -17,7 +17,7 @@
         </div>
         <div class="items" *ngIf="(items$ | async) as itemsList">
             <div *ngFor="let item of itemsList" class="item">
-                <input type="checkbox" id="{{item.caption}}" [checked]="item.isCompleted" (click)="markItem(item.id, !item.isCompleted)">
+                <input type="checkbox" id="{{item.caption}}" [checked]="item.isCompleted" (click)="changItemCompleteStatus(item.id)">
                     <label for="{{item.caption}}" >{{item.caption}}</label>
             </div>
             <form [formGroup]="newItem" class="add" (ngSubmit)="addItem(caption.value)">

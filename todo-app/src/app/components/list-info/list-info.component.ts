@@ -22,18 +22,19 @@ export class ListInfoComponent implements OnInit {
   newItem!: FormGroup;
   
   constructor(private todolistsService: TodolistsService,
-              private todoItemService: TodoitemsService,
+              private todoItemsService: TodoitemsService,
               private route: ActivatedRoute, //ActivatedRoute helps to get data from the URL
               private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     let currentListId = this.getCurrentListId();
 
     this.list$ = this.todolistsService.getTodoListById(currentListId);
-    this.items$ = this.todoItemService.getTodoItemsPerListId(currentListId);
+    this.items$ = this.todoItemsService.getTodoItemsPerListId(currentListId);
 
     this.newItem = this.formBuilder.group({
-                                  caption: ["",[Validators.required]]}
+                                  //caption: ["",[Validators.required]]} : first way
+                                  caption: new FormControl('',[Validators.required])} //second way
                                   );
   }
 
@@ -46,24 +47,27 @@ export class ListInfoComponent implements OnInit {
     this.toDelete$.next(this.delete);
   }
 
-  addItem(caption: string){
+  async addItem(caption: string){
+    let currentListId = this.getCurrentListId();
+
     let todo = {
-      listId: this.getCurrentListId(),
+      listId: currentListId,
       caption: caption,
       isCompleted: false
     };
 
-    this.todoItemService.addItemToTodoList(todo);
+    this.todoItemsService.addItemToTodoList(todo);
+    this.list$ = this.todolistsService.getTodoListById(currentListId);
+    this.newItem.reset();
   }
 
-  deleteList(){
+  async deleteList(){
     let currentListId = this.getCurrentListId();
 
-    this.todolistsService.deleteTodoListById(currentListId);
+    await this.todolistsService.deleteTodoListById(currentListId);
   }
 
-  markItem(currentItemId : number | undefined, isComplete: boolean){
-    console.log(`mark item ${isComplete}`);
-    this.todoItemService.markTodoItemAs(Number(currentItemId), isComplete);
+  async changItemCompleteStatus(currentItemId : number | undefined){
+    await this.todoItemsService.markTodoItemAs(Number(currentItemId));
   }
 }

@@ -1,15 +1,20 @@
-<div class="form">
+<form [formGroup]="listEditForm" class="form" (ngSubmit)="saveChanges()">
     <div class="form-field">
         <label>Caption: </label>
-        <input type="text">
+        <input type="text" formControlName="caption">
     </div>
 
     <div class="form-field">
         <label>Description: </label>
-        <textarea></textarea>
+        <textarea formControlName="description"></textarea>
     </div>
 
     <div class="form-field">
+        <label>ImageURL: </label>
+        <input class="ImageURL" type="text" formControlName="imageURL">
+    </div>
+
+    <!--<div class="form-field">
         <label>Icon: </label>
         <select name="cars" class="cars">
             <option value=""></option>
@@ -20,11 +25,11 @@
             <option value="flagged">Flagged</option>
             <option value="new">New</option>
         </select>
-    </div>
+    </div>-->
 
     <div class="form-field">
         <label>Color: </label>
-        <select name="colors" class="colors">
+        <select name="colors" class="colors" formControlName="color">
             <option value=""></option>
             <option class="red" value="red">red</option>
             <option class="green" value="green">green</option>
@@ -37,6 +42,6 @@
     </div>
 
     <div class="buttons">
-        <button>Save</button>
+        <button [disabled]="listEditForm.invalid">Save</button>
     </div>
-</div>
+</form>

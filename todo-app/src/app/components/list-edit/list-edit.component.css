@@ -77,10 +77,14 @@ textarea {
     justify-content: flex-end;
 }
 
+button:disabled{
+    background-color: rgb(226, 178, 178);
+}
+
 button{
     border-radius: 4px;
     color: rgb(37, 78, 168);
-    background: rgb(206, 212, 230);
+    background: rgb(171, 184, 223);
     font-size: 18px;
     padding: 5px;
     width: 80px;
@@ -95,4 +99,8 @@ button:hover{
     background: rgb(132, 144, 170);
     transition: 0.2s;
     color: white
+}
+
+.ImageURL{
+    font-size: 13px;
 }

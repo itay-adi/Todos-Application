@@ -1,12 +1,18 @@
-<h2>Active items:</h2>
+<div class="items">
+    <div class="active">
+        <h2>Active items:</h2>
+        <div *ngFor="let item of (activeTodoItems$ | async)">
+            <input id="{{item.caption}}" type="checkbox" [checked]="item.isCompleted" (click)="markItem(item.id, !item.isCompleted)">
+                <label for="{{item.caption}}">{{item.caption}}</label>
+        </div>
+        <button (click)="ngOnInit()">Refresh</button>
+    </div>
 
-<div *ngFor="let item of (activeTodoItems$ | async)">
-    <input id="{{item.caption}}" type="checkbox">
-        <label for="{{item.caption}}">{{item.caption}}</label>
-</div>
-
-<h2>History:</h2>
-<div *ngFor="let item of (completedTodoItems$ | async)">
-    <input id="{{item.caption}}" type="checkbox" disabled checked>
-        <label for="{{item.caption}}">{{item.caption}}</label>
+    <div class="history">
+        <h2>History:</h2>
+        <div *ngFor="let item of (completedTodoItems$ | async)">
+            <input id="{{item.caption}}" type="checkbox" disabled checked>
+                <label for="{{item.caption}}">{{item.caption}}</label>
+        </div>
+    </div>
 </div>

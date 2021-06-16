@@ -12,10 +12,14 @@ export class ItemsComponent implements OnInit {
   activeTodoItems$!: Observable<TodoItem[]>;
   completedTodoItems$!: Observable<TodoItem[]>;
 
-  constructor(private todoitemsService: TodoitemsService) { }
+  constructor(private todoItemsService: TodoitemsService) { }
 
   ngOnInit(): void {
-    this.activeTodoItems$ = this.todoitemsService.getActiveTodoItems();
-    this.completedTodoItems$ = this.todoitemsService.getCompletedTodoItems();
+    this.activeTodoItems$ = this.todoItemsService.getActiveTodoItems();
+    this.completedTodoItems$ = this.todoItemsService.getCompletedTodoItems();
+  }
+
+  async markItem(currentItemId : number | undefined, isComplete: boolean){
+    await this.todoItemsService.markTodoItemAs(Number(currentItemId));
   }
 }

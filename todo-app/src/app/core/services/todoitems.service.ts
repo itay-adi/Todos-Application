@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TodoItem } from '../models/todo-item.model';
 
-import { filter, map } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs';
+import { TodoList } from '../models/todo-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -84,32 +85,40 @@ export class TodoitemsService {
     return allTodoItems;
   }
 
-  addItemToTodoList(todoItem: TodoItem){
+  addItemToTodoList(todoItem: TodoItem): Promise<TodoItem>{
     const url = `${this.baseUrl}/todoItems`;
 
     return this.httpClient
-            .post(url, todoItem)
+            .post<TodoItem>(url, todoItem)
             .toPromise();
   }
 
-  deleteTodoItemById(IdNumber: number){
+  deleteTodoItemById(IdNumber: number): Promise<TodoList>{
     const url = `${this.baseUrl}/todoItems/${IdNumber}`;
 
     return this.httpClient
-            .delete(url)
+            .delete<TodoList>(url)
             .toPromise();
   }
 
-  markTodoItemAs(IdNumber: number, isDone: boolean){
+  async markTodoItemAs(IdNumber: number): Promise<TodoItem>{
     const url = `${this.baseUrl}/todoItems/${IdNumber}`;
 
-    this.httpClient
-            .patch(url, {"isCompleted": isDone})
-            .subscribe(
-              data => {console.log(`Patch for item number ${IdNumber} went well`);},
-                       error => {console.log("Error", error);}
-            );
+    let completeStatus = await this.getTodoItemStatus(IdNumber);
 
-    console.log(IdNumber + " Inside markTodoItemAs")
+    return this.httpClient
+            .patch<TodoItem>(url, {"isCompleted": !completeStatus})
+            .toPromise();
+  }
+
+  private getTodoItemStatus(IdNumber: number): Promise<boolean>{
+    const url = `${this.baseUrl}/todoItems/${IdNumber}`;
+
+    return this.httpClient
+              .get<TodoItem>(url)
+              .pipe(
+                map(td => td.isCompleted)
+              )
+              .toPromise();
   }
 }
