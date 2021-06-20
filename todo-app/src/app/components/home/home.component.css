@@ -41,19 +41,22 @@ button:hover {
     margin: 50px;
 }
 
-.mat-icon{
+.material-icons{
     font-size: 40px;
     color: rgb(37, 78, 168);
     margin: 50px;
+    align-self: center;
 }
 
 .number{
     color: black;
     font-size: 40px;
     margin: 10px;
+    align-self: center;
 }
 
 .name{
     color: rgb(37, 78, 168);
     font-size: 30px;
+    align-self: center;
 }

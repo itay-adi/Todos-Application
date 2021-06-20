@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
-export function wordsValidators(minWords: number): (control: AbstractControl) => ValidationErrors | null {
+export function minWordsValidators(minWords: number): (control: AbstractControl) => ValidationErrors | null {
     return (control: AbstractControl) => {
         if(controlValidator(control)) return null;
         
@@ -9,7 +9,7 @@ export function wordsValidators(minWords: number): (control: AbstractControl) =>
         if(words.length >= minWords) return null;
 
         return {
-            'words': {
+            'minWords': {
                 actual: words.length,
                 minimum: minWords
             }
@@ -17,7 +17,7 @@ export function wordsValidators(minWords: number): (control: AbstractControl) =>
     }
 }
 
-export function lettersValidators(maxLetters: number): (control: AbstractControl) => ValidationErrors | null {
+export function maxLettersValidators(maxLetters: number): (control: AbstractControl) => ValidationErrors | null {
     return (control: AbstractControl) => {
         if(controlValidator(control)) return null;
         
@@ -26,7 +26,7 @@ export function lettersValidators(maxLetters: number): (control: AbstractControl
         if(words.length <= maxLetters) return null;
 
         return {
-            'words': {
+            'maxLetters': {
                 actual: words.length,
                 maximum: maxLetters
             }

@@ -2,13 +2,12 @@
 
 <div class="wrap">
     <div class="new" routerLink="-1/edit" routerLinkActive="here">
-        <mat-icon>add</mat-icon>
+        <span class="material-icons">add</span>
         <p>Create New</p>
     </div>
 
     <div *ngFor="let list of (toDoLists$ | async)" routerLink="{{list.id}}" routerLinkActive="here" class="lists">
-            <img src={{list.imageURL}}>
+            <span class="material-icons" [style.color]="list.color">{{list.icon}}</span>
             <p>{{list.caption}}</p>
     </div>
 </div>
-

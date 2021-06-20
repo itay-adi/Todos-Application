@@ -1,7 +1,8 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div *ngIf="(list$ | async) as list">
     <div class="headlines">
-        <img class="icon" src="{{list.imageURL}}">
-    
+        <span class="material-icons" [style.color]="list.color">{{list.icon}}</span>
         <div class="buttons">
             <div *ngIf="!(toDelete$ | async)" class="prime-buttons">
                 <h2>{{list.description}}</h2>

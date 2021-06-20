@@ -12,7 +12,8 @@
     grid-row-gap: 0px;
 }
 
-img {
+.material-icons {
+    font-size: 100px;
     margin-top: 15px;
     width: 100px;
     height: 100px;

@@ -20,7 +20,8 @@ export class TodolistsService {
 
     let numberOfTodoLists = this.httpClient
                         .get<TodoList[]>(url)
-                        .pipe(map(list => list.length))
+                        .pipe(
+                          map(list => list.length))
                         .toPromise();
 
     return numberOfTodoLists;
@@ -29,7 +30,7 @@ export class TodolistsService {
   getListsArray(): Promise<TodoList[]>{
     const url = `${this.baseUrl}/todoLists`;
 
-    let todoLists = this.httpClient
+      let todoLists = this.httpClient
                 .get<TodoList[]>(url)
                 .toPromise();
 
@@ -64,5 +65,21 @@ export class TodolistsService {
     todoItemsPerListId.forEach(async todoItem => {
       await this.todoItemsService.deleteTodoItemById(Number(todoItem.id));
     });
+  }
+
+  setListByID(todoList: TodoList): Promise<TodoList>{
+    const url = `${this.baseUrl}/todoLists/${todoList.id}`;
+
+    return this.httpClient
+            .put<TodoList>(url, todoList)
+            .toPromise();
+  }
+
+  addNewTodoList(todoList: TodoList): Promise<TodoList>{
+    const url = `${this.baseUrl}/todoLists`;
+
+    return this.httpClient
+            .post<TodoList>(url, todoList)
+            .toPromise();
   }
 }

@@ -1,4 +1,6 @@
-<form [formGroup]="listEditForm" class="form" (ngSubmit)="saveChanges()">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<form [formGroup]="listForm" class="form" (ngSubmit)="save()">
     <div class="form-field">
         <label>Caption: </label>
         <input type="text" formControlName="caption">
@@ -10,22 +12,18 @@
     </div>
 
     <div class="form-field">
-        <label>ImageURL: </label>
-        <input class="ImageURL" type="text" formControlName="imageURL">
-    </div>
-
-    <!--<div class="form-field">
         <label>Icon: </label>
-        <select name="cars" class="cars">
+        <select name="icons" class="icons" formControlName="icon">
             <option value=""></option>
-            <option value="work">Work</option>
-            <option value="shopping">Shopping</option>
-            <option value="fun">Fun</option>
-            <option value="events">Events</option>
-            <option value="flagged">Flagged</option>
-            <option value="new">New</option>
+            <option class="material-icons" value="shopping_cart">shopping_cart</option>
+            <option class="material-icons" value="shopping_cart">shopping_bag</option>
+            <option class="material-icons" value="stars">stars</option>
+            <option class="material-icons" value="today">today</option>
+            <option class="material-icons" value="work">work</option>
+            <option class="material-icons" value="phone">phone</option>
+            <option class="material-icons" value="flag">flag</option>
         </select>
-    </div>-->
+    </div>
 
     <div class="form-field">
         <label>Color: </label>
@@ -42,6 +40,6 @@
     </div>
 
     <div class="buttons">
-        <button [disabled]="listEditForm.invalid">Save</button>
+        <button [disabled]="listForm.invalid">Save</button>
     </div>
 </form>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { TodoItem } from '../models/todo-item.model';
 
 import { map } from 'rxjs/operators'
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { TodoList } from '../models/todo-list.model';
 
 @Injectable({

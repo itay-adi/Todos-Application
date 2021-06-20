@@ -1,0 +1,13 @@
+<div *ngIf="errors as errors" class="errors">
+    <div *ngIf="errors['required'] as err">
+        Required
+    </div>
+
+    <div *ngIf="errors['minWords'] as err">
+        Required min words count: {{err.actual}}/{{err.minimum}}
+    </div>
+
+    <div *ngIf="errors['maxLetters'] as err">
+        Required max letters count: {{err.actual}}/{{err.minimum}}
+    </div>
+</div>

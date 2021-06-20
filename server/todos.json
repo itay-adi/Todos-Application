@@ -1,97 +1,49 @@
 {
   "todoItems": [
     {
-      "id": 1,
       "listId": 1,
-      "caption": "apples",
-      "isCompleted": false
-    },
-    {
-      "id": 2,
-      "listId": 1,
-      "caption": "chicken-wings",
-      "isCompleted": false
-    },
-    {
-      "caption": "Go to the doctor",
-      "listId": 2,
-      "isCompleted": false,
-      "id": 3
-    },
-    {
-      "id": 4,
-      "listId": 2,
-      "caption": "Go to swim",
-      "isCompleted": false
+      "caption": "lattice",
+      "isCompleted": true,
+      "id": 1
     },
     {
       "listId": 1,
-      "caption": "bananas",
-      "isCompleted": false,
-      "id": 5
-    },
-    {
-      "listId": 1,
-      "caption": "kiwi",
-      "isCompleted": false,
-      "id": 6
-    },
-    {
-      "listId": 1,
-      "caption": "tortilla",
-      "isCompleted": false,
-      "id": 7
+      "caption": "tomato",
+      "isCompleted": true,
+      "id": 2
     },
     {
       "listId": 1,
       "caption": "carrot",
       "isCompleted": false,
-      "id": 8
-    },
-    {
-      "listId": 1,
-      "caption": "lattice",
-      "isCompleted": false,
-      "id": 9
-    },
-    {
-      "listId": 1,
-      "caption": "rice",
-      "isCompleted": false,
-      "id": 10
-    },
-    {
-      "listId": 1,
-      "caption": "coffee",
-      "isCompleted": false,
-      "id": 11
+      "id": 3
     },
     {
       "listId": 2,
-      "caption": "Go climb",
+      "caption": "run",
       "isCompleted": false,
-      "id": 12
+      "id": 4
     },
     {
       "listId": 2,
-      "caption": "prepare for the olimpic",
+      "caption": "swim",
       "isCompleted": false,
-      "id": 13
+      "id": 5
     }
   ],
   "todoLists": [
     {
       "id": 1,
-      "caption": "Supermarket",
+      "caption": "SuperMarket",
       "description": "I need to eat",
-      "imageURL": "https://theplanetapp.com/wp-content/uploads/2020/09/sustainable-supermarket-theplanetapp-1280x960.jpg",
+      "icon": "shopping_cart",
       "color": "green"
     },
     {
       "id": 2,
-      "caption": "Health Activities",
-      "description": "I want to live longer",
-      "imageURL": "https://truescho.com/storage/images/O6WhVckRQTJHLAmu8uKC7ljsnKw3qSqzMkb16FBM.jpg",
+      "caption": "Sport",
+      "description": "I want to live healty",
+      "icon": "stars",
       "color": "red"
     }
   ]
