@@ -35,7 +35,7 @@
     {
       "id": 1,
       "caption": "SuperMarket",
-      "description": "I need to eat",
+      "description": "I need to eat today",
       "icon": "shopping_cart",
       "color": "green"
     },

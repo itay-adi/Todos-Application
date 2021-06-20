@@ -5,9 +5,6 @@
 }
 
 .form{
-    border: 2px;
-    border-style: solid;
-    border-color: rgb(135, 158, 209);
     background-color: rgb(228, 231, 240);
     width: 300px;
     align-self: center;

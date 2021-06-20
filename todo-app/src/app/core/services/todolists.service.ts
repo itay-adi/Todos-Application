@@ -78,8 +78,10 @@ export class TodolistsService {
   addNewTodoList(todoList: TodoList): Promise<TodoList>{
     const url = `${this.baseUrl}/todoLists`;
 
-    return this.httpClient
-            .post<TodoList>(url, todoList)
-            .toPromise();
+    let newTodoList = this.httpClient
+                            .post<TodoList>(url, todoList)
+                            .toPromise();
+                            
+    return newTodoList; 
   }
 }

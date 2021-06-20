@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TodoItem } from 'src/app/core/models/todo-item.model';
 import { TodoList } from 'src/app/core/models/todo-list.model';
@@ -24,7 +24,8 @@ export class ListInfoComponent implements OnInit {
   constructor(private todolistsService: TodolistsService,
               private todoItemsService: TodoitemsService,
               private route: ActivatedRoute, //ActivatedRoute helps to get data from the URL
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     let currentListId = this.getCurrentListId();
@@ -61,10 +62,12 @@ export class ListInfoComponent implements OnInit {
     this.newItem.reset();
   }
 
-  async deleteList(){
+  deleteList(){
     let currentListId = this.getCurrentListId();
 
-    await this.todolistsService.deleteTodoListById(currentListId);
+    this.todolistsService.deleteTodoListById(currentListId).then(()=>{
+      this.router.navigate(['lists']);
+    });
   }
 
   async changItemCompleteStatus(currentItemId : number | undefined){

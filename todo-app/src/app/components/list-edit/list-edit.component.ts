@@ -88,12 +88,18 @@ export class ListEditComponent implements OnInit {
   }
 
   saveChanges(id: number){
-    this.todoListService.setListByID(this.listForm.value);
-    this.router.navigate(['lists', id]);
+    this.todoListService.setListByID(this.listForm.value).then(()=>{
+      this.router.navigate(['lists', id]);
+    });
   }
 
   addNewList(todoList: TodoList){
-    this.todoListService.addNewTodoList(todoList);
-    this.router.navigate(['lists']);
+    this.todoListService.addNewTodoList(todoList).then(()=>{
+      this.router.navigate(['lists']);
+    });
+  }
+
+  get(filedName: string){
+    return this.listForm.get(filedName);
   }
 }

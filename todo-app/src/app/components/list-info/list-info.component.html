@@ -13,7 +13,7 @@
             <div *ngIf="(toDelete$ | async)" class="delete-buttons">
                 <h2>Are you sure you want to delete this entire list?</h2>
                 <button (click)="showDelete()">Cancel</button>
-                <button class="delete" (click)="deleteList()" routerLink="..">Delete</button>
+                <button class="delete" (click)="deleteList()">Delete</button>
             </div>
         </div>
         <div class="items" *ngIf="(items$ | async) as itemsList">

@@ -1,17 +1,19 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <form [formGroup]="listForm" class="form" (ngSubmit)="save()">
-    <div class="form-field">
+    <div class="form-field" *ngIf="get('caption') as field">
         <label>Caption: </label>
         <input type="text" formControlName="caption">
+        <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
     </div>
 
-    <div class="form-field">
+    <div class="form-field" *ngIf="get('description') as field">
         <label>Description: </label>
         <textarea formControlName="description"></textarea>
+        <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
     </div>
 
-    <div class="form-field">
+    <div class="form-field" *ngIf="get('icon') as field">
         <label>Icon: </label>
         <select name="icons" class="icons" formControlName="icon">
             <option value=""></option>
@@ -23,9 +25,10 @@
             <option class="material-icons" value="phone">phone</option>
             <option class="material-icons" value="flag">flag</option>
         </select>
+        <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
     </div>
 
-    <div class="form-field">
+    <div class="form-field" *ngIf="get('color') as field">
         <label>Color: </label>
         <select name="colors" class="colors" formControlName="color">
             <option value=""></option>
@@ -37,6 +40,7 @@
             <option class="brown" value="brown">brown</option>
             <option class="orange" value="orange">orange</option>
         </select>
+        <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
     </div>
 
     <div class="buttons">
