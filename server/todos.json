@@ -3,13 +3,13 @@
     {
       "listId": 1,
       "caption": "lattice",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 1
     },
     {
       "listId": 1,
       "caption": "tomato",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 2
     },
     {

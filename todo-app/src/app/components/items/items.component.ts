@@ -19,7 +19,9 @@ export class ItemsComponent implements OnInit {
     this.completedTodoItems$ = this.todoItemsService.getCompletedTodoItems();
   }
 
-  async markItem(currentItemId : number | undefined, isComplete: boolean){
-    await this.todoItemsService.markTodoItemAs(Number(currentItemId));
+  async markItem(currentItemId : number | undefined, isComplete: boolean): Promise<TodoItem>{
+    let todoItem = await this.todoItemsService.markTodoItemAs(Number(currentItemId));
+
+    return todoItem;
   }
 }

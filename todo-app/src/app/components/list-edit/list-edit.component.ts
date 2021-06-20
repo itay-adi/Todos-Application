@@ -23,13 +23,13 @@ export class ListEditComponent implements OnInit {
               private todoListService: TodolistsService,
               private router: Router) { }
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit(){
     this.initObservers();
     this.initForms();
   }
 
   private initObservers(){
-    this.id$ = this.route.params.pipe(
+    let a = this.id$ = this.route.params.pipe(
       map(prms => Number(prms['id']))
     );
 
