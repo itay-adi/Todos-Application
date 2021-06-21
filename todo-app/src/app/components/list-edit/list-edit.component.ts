@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first, map, switchMap } from 'rxjs/operators';
 import { TodoList } from 'src/app/core/models/todo-list.model';
 import { TodolistsService } from 'src/app/core/services/todolists.service';
-import { maxLettersValidators, minWordsValidators } from 'src/app/validations/genral-validtors';
+import { maxLettersValidators, minLettersValidators, minWordsValidators } from 'src/app/validations/genral-validtors';
 
 @Component({
   selector: 'app-list-edit',
@@ -52,7 +52,7 @@ export class ListEditComponent implements OnInit {
       {
         id: new FormControl(),
         caption: new FormControl('',[Validators.required, maxLettersValidators(25)]),
-        description: new FormControl('',[Validators.required, minWordsValidators(2)]),
+        description: new FormControl('',[Validators.required, minWordsValidators(10), minLettersValidators(30)]),
         icon: new FormControl('',[Validators.required]),
         color: new FormControl('',[Validators.required]),
       }
@@ -79,21 +79,26 @@ export class ListEditComponent implements OnInit {
     let id = this.getCurrentListId();
 
     if(id > 0){
-      this.saveChanges(id);
-    } 
+      console.log("")
+      this.updateList(id);
+    }
     
-    else{
+    else if(id === -1){
       this.addNewList(this.listForm.value);
+    }
+
+    else{
+      this.router.navigate(['List_not_found']);
     }
   }
 
-  saveChanges(id: number){
+  updateList(id: number){
     this.todoListService.setListByID(this.listForm.value).then(()=>{
       this.router.navigate(['lists', id]);
     });
   }
 
-  addNewList(todoList: TodoList){
+  async addNewList(todoList: TodoList){
     this.todoListService.addNewTodoList(todoList).then(()=>{
       this.router.navigate(['lists']);
     });

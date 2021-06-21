@@ -6,11 +6,12 @@ import { ListEditComponent } from './components/list-edit/list-edit.component';
 import { ListInfoComponent } from './components/list-info/list-info.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { InitGuard } from './guards/init.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'lists', component: ListsComponent},
+  { path: 'lists', component: ListsComponent, canActivate: [InitGuard]},
   { path: 'lists/:id', component: ListInfoComponent},
   { path: 'lists/:id/edit', component: ListEditComponent},
   { path: 'items', component: ItemsComponent},

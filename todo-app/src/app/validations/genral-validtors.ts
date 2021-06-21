@@ -17,6 +17,23 @@ export function minWordsValidators(minWords: number): (control: AbstractControl)
     }
 }
 
+export function minLettersValidators(minLetters: number): (control: AbstractControl) => ValidationErrors | null {
+    return (control: AbstractControl) => {
+        if(controlValidator(control)) return null;
+        
+        let words = String(control.value).replace(" ", "");
+
+        if(words.length >= minLetters) return null;
+
+        return {
+            'minLetters': {
+                actual: words.length,
+                minimum: minLetters
+            }
+        };
+    }
+}
+
 export function maxLettersValidators(maxLetters: number): (control: AbstractControl) => ValidationErrors | null {
     return (control: AbstractControl) => {
         if(controlValidator(control)) return null;

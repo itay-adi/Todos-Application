@@ -5,11 +5,19 @@
     background-color: rgb(233, 236, 243);
 }
 
+h1{
+    margin: 0px;
+}
+
 .headlines {
     display: grid;
     grid-template-columns: 120px 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+}
+
+.caption{
+    font-size: 30px;
 }
 
 .material-icons {

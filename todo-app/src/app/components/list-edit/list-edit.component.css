@@ -17,6 +17,26 @@
     margin: 20px;
 }
 
+.caption{
+    height: 35px;
+}
+
+.multi-select{
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    margin-top: -20px;
+}
+
+.icons{
+    font-size: 27px;
+    height: 35px;
+    font-family: 'Material Icons';
+}
+
+.colors{
+    height: 35px;
+}
+
 .red{
     color: red;
 }
@@ -102,6 +122,8 @@ button:hover{
     font-size: 13px;
 }
 
-.icons{
-    font-family: 'Material Icons';
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+    border: 2px solid red;
 }

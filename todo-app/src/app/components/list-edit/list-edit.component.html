@@ -3,7 +3,7 @@
 <form [formGroup]="listForm" class="form" (ngSubmit)="save()">
     <div class="form-field" *ngIf="get('caption') as field">
         <label>Caption: </label>
-        <input type="text" formControlName="caption">
+        <input class="caption" type="text" formControlName="caption">
         <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
     </div>
 
@@ -13,34 +13,36 @@
         <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
     </div>
 
-    <div class="form-field" *ngIf="get('icon') as field">
-        <label>Icon: </label>
-        <select name="icons" class="icons" formControlName="icon">
-            <option value=""></option>
-            <option class="material-icons" value="shopping_cart">shopping_cart</option>
-            <option class="material-icons" value="shopping_cart">shopping_bag</option>
-            <option class="material-icons" value="stars">stars</option>
-            <option class="material-icons" value="today">today</option>
-            <option class="material-icons" value="work">work</option>
-            <option class="material-icons" value="phone">phone</option>
-            <option class="material-icons" value="flag">flag</option>
-        </select>
-        <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
-    </div>
+    <div class="multi-select">
+        <div class="form-field" *ngIf="get('icon') as field">
+            <label>Icon: </label>
+            <select name="icons" class="icons" formControlName="icon">
+                <option value=""></option>
+                <option class="material-icons" value="shopping_cart">shopping_cart</option>
+                <option class="material-icons" value="shopping_cart">shopping_bag</option>
+                <option class="material-icons" value="stars">stars</option>
+                <option class="material-icons" value="today">today</option>
+                <option class="material-icons" value="work">work</option>
+                <option class="material-icons" value="phone">phone</option>
+                <option class="material-icons" value="flag">flag</option>
+            </select>
+            <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
+        </div>
 
-    <div class="form-field" *ngIf="get('color') as field">
-        <label>Color: </label>
-        <select name="colors" class="colors" formControlName="color">
-            <option value=""></option>
-            <option class="red" value="red">red</option>
-            <option class="green" value="green">green</option>
-            <option class="blue" value="blue">blue</option>
-            <option class="steelblue" value="steelblue">steelblue</option>
-            <option class="magenta" value="magenta">magenta</option>
-            <option class="brown" value="brown">brown</option>
-            <option class="orange" value="orange">orange</option>
-        </select>
-        <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
+        <div class="form-field" *ngIf="get('color') as field">
+            <label>Color: </label>
+            <select name="colors" class="colors" formControlName="color">
+                <option value=""></option>
+                <option class="red" value="red">red</option>
+                <option class="green" value="green">green</option>
+                <option class="blue" value="blue">blue</option>
+                <option class="steelblue" value="steelblue">steelblue</option>
+                <option class="magenta" value="magenta">magenta</option>
+                <option class="brown" value="brown">brown</option>
+                <option class="orange" value="orange">orange</option>
+            </select>
+            <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
+        </div>
     </div>
 
     <div class="buttons">

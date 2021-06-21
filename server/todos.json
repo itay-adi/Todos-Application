@@ -2,49 +2,30 @@
   "todoItems": [
     {
       "listId": 1,
-      "caption": "lattice",
+      "caption": "dssdf",
       "isCompleted": false,
       "id": 1
     },
     {
       "listId": 1,
-      "caption": "tomato",
+      "caption": "dsddsd",
       "isCompleted": false,
       "id": 2
     },
     {
       "listId": 1,
-      "caption": "carrot",
+      "caption": "dddddd",
       "isCompleted": false,
       "id": 3
-    },
-    {
-      "listId": 2,
-      "caption": "run",
-      "isCompleted": false,
-      "id": 4
-    },
-    {
-      "listId": 2,
-      "caption": "swim",
-      "isCompleted": false,
-      "id": 5
     }
   ],
   "todoLists": [
     {
       "id": 1,
-      "caption": "SuperMarket",
-      "description": "I need to eat today",
+      "caption": "Shopping",
+      "description": "sd sd sd sd sd sd sd sd sd sd sd ",
       "icon": "shopping_cart",
-      "color": "green"
-    },
-    {
-      "id": 2,
-      "caption": "Sport",
-      "description": "I want to live healty",
-      "icon": "stars",
-      "color": "red"
+      "color": "magenta"
     }
   ]
 }
