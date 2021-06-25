@@ -38,13 +38,10 @@ export class TodolistsService {
   }
 
   getTodoListById(IdNumber: number): Observable<TodoList | undefined>{
-    const url = `${this.baseUrl}/todoLists`;
+    const url = `${this.baseUrl}/todoLists/${IdNumber}`;
 
     let todoListById = this.httpClient
-                    .get<TodoList[]>(url)
-                    .pipe(
-                      map(list => list.find(l => l.id === IdNumber))
-                    );                   
+                    .get<TodoList>(url);                                   
 
     return todoListById;
   }

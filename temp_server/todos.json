@@ -2,19 +2,19 @@
   "todoItems": [
     {
       "listId": 1,
-      "caption": "dssdf",
+      "caption": "asdasd asdasd asdasd ",
       "isCompleted": false,
       "id": 1
     },
     {
       "listId": 1,
-      "caption": "dsddsd",
+      "caption": "asdasd asdasd sads",
       "isCompleted": false,
       "id": 2
     },
     {
       "listId": 1,
-      "caption": "dddddd",
+      "caption": "sadsad sdsa  ddd",
       "isCompleted": false,
       "id": 3
     }
@@ -22,10 +22,10 @@
   "todoLists": [
     {
       "id": 1,
-      "caption": "Shopping",
-      "description": "sd sd sd sd sd sd sd sd sd sd sd ",
+      "caption": "sdfsdfsdfsd",
+      "description": "sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd sdfsdfsdfsd ",
       "icon": "shopping_cart",
-      "color": "magenta"
+      "color": "blue"
     }
   ]
 }

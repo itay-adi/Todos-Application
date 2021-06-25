@@ -29,6 +29,9 @@
         <form [formGroup]="newItem" class="add" (ngSubmit)="addItem(caption.value)">
             <input formControlName="caption" #caption class="add-item" type="text" placeholder="Add a new Item">
             <button [disabled]="newItem.invalid" class="add-button">+</button>
+            <div *ngIf="newItem.get('caption') as field">
+                <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
+            </div>
         </form>
     </div>
 </div>

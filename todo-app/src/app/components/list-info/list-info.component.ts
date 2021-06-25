@@ -6,6 +6,7 @@ import { TodoItem } from 'src/app/core/models/todo-item.model';
 import { TodoList } from 'src/app/core/models/todo-list.model';
 import { TodoitemsService } from 'src/app/core/services/todoitems.service';
 import { TodolistsService } from 'src/app/core/services/todolists.service';
+import { minLettersValidators, minWordsValidators } from 'src/app/validations/genral-validtors';
 
 @Component({
   selector: 'app-list-info',
@@ -35,7 +36,9 @@ export class ListInfoComponent implements OnInit {
 
     this.newItem = this.formBuilder.group({
                                   //caption: ["",[Validators.required]]} : first way
-                                  caption: new FormControl('',[Validators.required])} //second way
+                                  caption: new FormControl('',[Validators.required,  //second way
+                                                               minLettersValidators(10),
+                                                               minWordsValidators(3)])}
                                   );
   }
 
@@ -66,7 +69,7 @@ export class ListInfoComponent implements OnInit {
     let currentListId = this.getCurrentListId();
 
     this.todolistsService.deleteTodoListById(currentListId).then(()=>{
-      this.router.navigate(['lists']);
+      this.router.navigate(['home']);
     });
   }
 
