@@ -10,13 +10,13 @@ import { TodoitemsService } from './todoitems.service';
   providedIn: 'root'
 })
 export class TodolistsService {
-  readonly baseUrl = 'http://localhost:3000';
+  readonly baseUrl = 'http://localhost:5000/TodoGroups';
 
   constructor(private httpClient: HttpClient,
               private todoItemsService: TodoitemsService) { }
 
   getNumberOfTodoLists(): Promise<number>{
-    const url = `${this.baseUrl}/todoLists`;
+    const url = `${this.baseUrl}`;
 
     let numberOfTodoLists = this.httpClient
                         .get<TodoList[]>(url)
@@ -28,7 +28,7 @@ export class TodolistsService {
   }
 
   getListsArray(): Promise<TodoList[]>{
-    const url = `${this.baseUrl}/todoLists`;
+    const url = `${this.baseUrl}`;
 
       let todoLists = this.httpClient
                 .get<TodoList[]>(url)
@@ -38,7 +38,7 @@ export class TodolistsService {
   }
 
   getTodoListById(IdNumber: number): Observable<TodoList | undefined>{
-    const url = `${this.baseUrl}/todoLists/${IdNumber}`;
+    const url = `${this.baseUrl}/${IdNumber}`;
 
     let todoListById = this.httpClient
                     .get<TodoList>(url);                                   
@@ -46,10 +46,10 @@ export class TodolistsService {
     return todoListById;
   }
 
-  deleteTodoListById(IdNumber: number): Promise<TodoItem>{
-    const url = `${this.baseUrl}/todoLists/${IdNumber}`;
+  async deleteTodoListById(IdNumber: number): Promise<TodoItem>{
+    const url = `${this.baseUrl}/${IdNumber}`;
     
-    this.deleteAllTodoItemsOfAList(IdNumber);
+    //await this.deleteAllTodoItemsOfAList(IdNumber);
     
     return this.httpClient
             .delete<TodoItem>(url)
@@ -65,7 +65,7 @@ export class TodolistsService {
   }
 
   setListByID(todoList: TodoList): Promise<TodoList>{
-    const url = `${this.baseUrl}/todoLists/${todoList.id}`;
+    const url = `${this.baseUrl}/${todoList.id}`;
 
     return this.httpClient
             .put<TodoList>(url, todoList)
@@ -73,7 +73,7 @@ export class TodolistsService {
   }
 
   addNewTodoList(todoList: TodoList): Promise<TodoList>{
-    const url = `${this.baseUrl}/todoLists`;
+    const url = `${this.baseUrl}`;
 
     let newTodoList = this.httpClient
                             .post<TodoList>(url, todoList)

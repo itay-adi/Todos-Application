@@ -10,48 +10,50 @@ import { TodoList } from '../models/todo-list.model';
   providedIn: 'root'
 })
 export class TodoitemsService {
-  readonly baseUrl = 'http://localhost:3000';
+  readonly baseUrl = 'http://localhost:5000/todoItems';
 
   constructor(private httpClient: HttpClient) { }
 
   getNumberOfTodoItems(): Promise<number>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}/countAll`;
 
     let numberOfTodoItems = this.httpClient
-                            .get<TodoItem[]>(url)
-                            .pipe(map(list => list.length))
+                            .get<number>(url)
+                            /*.pipe(map(list => list.length))*/
                             .toPromise();
 
     return numberOfTodoItems;
   }
 
   getNumberOfActiveTodoItems(): Promise<number>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}`;
 
     let numberOfActiveTodoItems = this.httpClient
                             .get<TodoItem[]>(url)
                             .pipe(
                               map(list => list.filter(td => td.isCompleted === false)),
-                              map(td => td.length))
+                              map(td => td.length)
+                              )
                             .toPromise();
 
     return numberOfActiveTodoItems;
   }
 
   getNumberOfTodoItemsPerList(listId :number): Promise<number>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}`;
 
     let numberOfTodoItemsPerList = this.httpClient
                             .get<TodoItem[]>(url)
                             .pipe(
-                              map(list => list.filter(td => td.listId === listId).length))
+                              map(list => list.filter(td => td.listId === listId).length)
+                              )
                             .toPromise();
 
     return numberOfTodoItemsPerList;
   }
 
   getTodoItemsPerListId(listId :number): Observable<TodoItem[]>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}`;
 
     let todoItemsPerList = this.httpClient
                             .get<TodoItem[]>(url)
@@ -62,31 +64,31 @@ export class TodoitemsService {
   }
 
   getActiveTodoItems(): Observable<TodoItem[]>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}/active`;
 
     let allTodoItems = this.httpClient
                         .get<TodoItem[]>(url)
-                        .pipe(
+                        /*.pipe(
                           map(list => list.filter(td => td.isCompleted === false))
-                        );
+                        )*/;
 
     return allTodoItems;
   }
 
   getCompletedTodoItems(): Observable<TodoItem[]>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}/completed`;
 
     let allTodoItems = this.httpClient
                         .get<TodoItem[]>(url)
-                        .pipe(
+                        /*.pipe(
                           map(list => list.filter(td => td.isCompleted === true))
-                        );
+                        )*/;
 
     return allTodoItems;
   }
 
   addItemToTodoList(todoItem: TodoItem): Promise<TodoItem>{
-    const url = `${this.baseUrl}/todoItems`;
+    const url = `${this.baseUrl}`;
 
     return this.httpClient
             .post<TodoItem>(url, todoItem)
@@ -94,7 +96,7 @@ export class TodoitemsService {
   }
 
   deleteTodoItemById(IdNumber: number): Promise<TodoList>{
-    const url = `${this.baseUrl}/todoItems/${IdNumber}`;
+    const url = `${this.baseUrl}/${IdNumber}`;
 
     return this.httpClient
             .delete<TodoList>(url)
@@ -102,23 +104,23 @@ export class TodoitemsService {
   }
 
   async markTodoItemAs(IdNumber: number): Promise<TodoItem>{
-    const url = `${this.baseUrl}/todoItems/${IdNumber}`;
+    const url = `${this.baseUrl}/${IdNumber}/status`;
 
-    let completeStatus = await this.getTodoItemStatus(IdNumber);
+    //let completeStatus = await this.getTodoItemStatus(IdNumber);
 
     return this.httpClient
-            .patch<TodoItem>(url, {"isCompleted": !completeStatus})
+            .patch<TodoItem>(url, {}/*{"isCompleted": (!completeStatus)}*/)
             .toPromise();
   }
 
   private getTodoItemStatus(IdNumber: number): Promise<boolean>{
-    const url = `${this.baseUrl}/todoItems/${IdNumber}`;
+    const url = `${this.baseUrl}/${IdNumber}/status`;
 
     return this.httpClient
-              .get<TodoItem>(url)
-              .pipe(
+              .get<boolean>(url)
+              /*.pipe(
                 map(td => td.isCompleted)
-              )
+              )*/
               .toPromise();
   }
 }
