@@ -50,7 +50,7 @@ export class ListEditComponent implements OnInit {
   private initListEditForm(){
     this.listForm = this.formBuilder.group(
       {
-        id: new FormControl(),
+        id: new FormControl(0),
         caption: new FormControl('',[Validators.required, maxLettersValidators(25)]),
         description: new FormControl('',[Validators.required, minWordsValidators(10), minLettersValidators(30)]),
         icon: new FormControl('',[Validators.required]),
