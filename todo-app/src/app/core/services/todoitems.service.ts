@@ -5,7 +5,6 @@ import { TodoItem } from '../models/todo-item.model';
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
 import { TodoList } from '../models/todo-list.model';
-import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -27,39 +26,39 @@ export class TodoitemsService {
   }
 
   getNumberOfActiveTodoItems(): Promise<number>{
-    const url = `${this.baseUrl}`;
+    const url = `${this.baseUrl}/countActive`;
 
     let numberOfActiveTodoItems = this.httpClient
-                            .get<TodoItem[]>(url)
-                            .pipe(
+                            .get<number>(url)
+                            /*.pipe(
                               map(list => list.filter(td => td.isCompleted === false)),
                               map(td => td.length)
-                              )
+                              )*/
                             .toPromise();
 
     return numberOfActiveTodoItems;
   }
 
   getNumberOfTodoItemsPerList(listId :number): Promise<number>{
-    const url = `${this.baseUrl}`;
+    const url = `${this.baseUrl}/countItemsPerGroup/${listId}`;
 
     let numberOfTodoItemsPerList = this.httpClient
-                            .get<TodoItem[]>(url)
-                            .pipe(
+                            .get<number>(url)
+                            /*.pipe(
                               map(list => list.filter(td => td.listId === listId).length)
-                              )
+                              )*/
                             .toPromise();
 
     return numberOfTodoItemsPerList;
   }
 
   getTodoItemsPerListId(listId :number): Observable<TodoItem[]>{
-    const url = `${this.baseUrl}`;
+    const url = `${this.baseUrl}/getItemsPerGroup/${listId}`;
 
     let todoItemsPerList = this.httpClient
-                            .get<TodoItem[]>(url)
-                            .pipe(
-                              map(list => list.filter(td => td.listId === listId)));
+                            .get<TodoItem[]>(url);
+                            /*.pipe(
+                              map(list => list.filter(td => td.listId === listId)));*/
 
     return todoItemsPerList;
   }

@@ -61,9 +61,10 @@ export class ListInfoComponent implements OnInit {
       isCompleted: false
     };
 
-    this.todoItemsService.addItemToTodoList(todo);
-    this.list$ = this.todolistsService.getTodoListById(currentListId);
-    this.newItem.reset();
+    this.todoItemsService.addItemToTodoList(todo).then(()=>{
+      this.list$ = this.todolistsService.getTodoListById(currentListId);
+      this.newItem.reset();
+    });
   }
 
   deleteList(){

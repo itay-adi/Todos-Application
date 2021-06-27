@@ -56,13 +56,13 @@ export class TodolistsService {
             .toPromise();
   }
 
-  private async deleteAllTodoItemsOfAList(listIdNumber: number){
+  /*private async deleteAllTodoItemsOfAList(listIdNumber: number){
     let todoItemsPerListId = await this.todoItemsService.getTodoItemsPerListId(listIdNumber).toPromise();
 
     todoItemsPerListId.forEach(async todoItem => {
       await this.todoItemsService.deleteTodoItemById(Number(todoItem.id));
     });
-  }
+  }*/
 
   setListByID(todoList: TodoList): Promise<TodoList>{
     const url = `${this.baseUrl}/${todoList.id}`;
