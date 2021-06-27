@@ -51,6 +51,10 @@ button:hover {
     min-width: 250px;
 }
 
+.unit:hover{
+    cursor: pointer;
+}
+
 .item{
     margin: 3px;
 }

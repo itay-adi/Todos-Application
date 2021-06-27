@@ -31,3 +31,7 @@ button{
 button:hover {
     background-color: rgb(188, 203, 235);
 }
+
+.unit:hover{
+    cursor: pointer;
+}
