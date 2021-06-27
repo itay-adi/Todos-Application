@@ -23,8 +23,8 @@
     
     <div class="items" *ngIf="(items$ | async) as itemsList">
         <div *ngFor="let item of itemsList" class="item">
-            <input type="checkbox" id="{{item.caption}}" [checked]="item.isCompleted" (click)="changItemCompleteStatus(item.id)">
-                <label for="{{item.caption}}" >{{item.caption}}</label>
+            <input type="checkbox" id="{{item.id}}" [checked]="item.isCompleted" (click)="changItemCompleteStatus(item.id)">
+                <label for="{{item.id}}">{{item.caption}}</label>
         </div>
         <form [formGroup]="newItem" class="add" (ngSubmit)="addItem(caption.value)">
             <input formControlName="caption" #caption class="add-item" type="text" placeholder="Add a new Item">

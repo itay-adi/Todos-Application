@@ -16,12 +16,12 @@ export class TodolistsService {
               private todoItemsService: TodoitemsService) { }
 
   getNumberOfTodoLists(): Promise<number>{
-    const url = `${this.baseUrl}`;
+    const url = `${this.baseUrl}/countAll`;
 
     let numberOfTodoLists = this.httpClient
-                        .get<TodoList[]>(url)
-                        .pipe(
-                          map(list => list.length))
+                        .get<number>(url)
+                        /*.pipe(
+                          map(list => list.length))*/
                         .toPromise();
 
     return numberOfTodoLists;

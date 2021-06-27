@@ -55,6 +55,7 @@ export class ListInfoComponent implements OnInit {
     let currentListId = this.getCurrentListId();
 
     let todo = {
+      id: 0,
       listId: currentListId,
       caption: caption,
       isCompleted: false
