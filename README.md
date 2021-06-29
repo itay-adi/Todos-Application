@@ -1,5 +1,6 @@
 # Todos-Application
-An end to end Application, which consists a [client side](https://github.com/itay-adi/Todos-Application-ClientSide) and a [server side](https://github.com/itay-adi/Todos-Application-ServerSide)
+A full-stack end to end web application contains a three-layer architecture design.
+consisting a [client side](https://github.com/itay-adi/Todos-Application-ClientSide), a [server side](https://github.com/itay-adi/Todos-Application-ServerSide) and an SQL DataBase
 
 ## ClientSide
 An Angular single page application that allows the user to arrange his task list. The user can:
