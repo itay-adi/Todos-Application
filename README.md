@@ -18,4 +18,4 @@ An Angular single page application that allows the user to arrange his task list
 7. Using Some advanced CSS layout
 8. Building Components to consume the services
 9. Using @Input and @Output in components
-10. Using an external package: material-icons to present cool icons
+10. Using an external package: material-icons to present icons
