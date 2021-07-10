@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { TodoItem } from '../models/todo-item.model';
 
 import { map } from 'rxjs/operators'
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TodoList } from '../models/todo-list.model';
 
 @Injectable({
@@ -11,6 +11,7 @@ import { TodoList } from '../models/todo-list.model';
 })
 export class TodoitemsService {
   readonly baseUrl = 'http://localhost:5000/todoItems';
+  private items: TodoItem[] = [];
 
   constructor(private httpClient: HttpClient) { }
 

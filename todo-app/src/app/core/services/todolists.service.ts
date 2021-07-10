@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { find, first, map } from 'rxjs/operators';
 import { TodoItem } from '../models/todo-item.model';
 import { TodoList } from '../models/todo-list.model';
-import { TodoitemsService } from './todoitems.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +10,7 @@ import { TodoitemsService } from './todoitems.service';
 export class TodolistsService {
   readonly baseUrl = 'http://localhost:5000/TodoGroups';
 
-  constructor(private httpClient: HttpClient,
-              private todoItemsService: TodoitemsService) { }
+  constructor(private httpClient: HttpClient) { }
 
   getNumberOfTodoLists(): Promise<number>{
     const url = `${this.baseUrl}/countAll`;

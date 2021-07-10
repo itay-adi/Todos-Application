@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Observer, Subject } from 'rxjs';
 import { TodoItem } from 'src/app/core/models/todo-item.model';
 import { TodoList } from 'src/app/core/models/todo-list.model';
+import { ListDeleteService } from 'src/app/core/services/list-delete.service';
 import { TodoitemsService } from 'src/app/core/services/todoitems.service';
 import { TodolistsService } from 'src/app/core/services/todolists.service';
 import { minLettersValidators, minWordsValidators } from 'src/app/validations/genral-validtors';
@@ -16,17 +17,17 @@ import { minLettersValidators, minWordsValidators } from 'src/app/validations/ge
 export class ListInfoComponent implements OnInit {
   list$!: Observable<TodoList | undefined>;
   items$!: Observable<TodoItem[]>;
-
-  delete: boolean = false;
-  toDelete$ = new BehaviorSubject<boolean>(this.delete);
+  toDelete$!: Observable<boolean>;
 
   newItem!: FormGroup;
   
   constructor(private todolistsService: TodolistsService,
               private todoItemsService: TodoitemsService,
+              private listDeleteService: ListDeleteService,
               private route: ActivatedRoute, //ActivatedRoute helps to get data from the URL
               private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router
+              ) { }
 
   async ngOnInit(): Promise<void> {
     let currentListId = this.getCurrentListId();
@@ -47,8 +48,7 @@ export class ListInfoComponent implements OnInit {
   }
 
   showDelete(){
-    this.delete = !this.delete;
-    this.toDelete$.next(this.delete);
+    this.toDelete$ = this.listDeleteService.showDelete();
   }
 
   async addItem(caption: string){
